@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    //このユーザーが所有する投稿（Postモデルとの関係を定義）
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
