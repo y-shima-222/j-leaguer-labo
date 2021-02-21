@@ -37,9 +37,9 @@ Route::group(['middleware' => ['auth']], function () {
     //投稿の処理
     Route::post('posts/player/{player}', 'PostsController@store')->name('posts.store');
     //編集用ページを表示する
-
+    Route::get('posts/{mypost}/edit', 'PostsController@edit')->name('posts.edit');
     //編集の処理
-    
+    Route::put('posts/{mypost}', 'PostsController@update')->name('posts.update');
     //削除
-  
+    Route::delete('posts/{mypost}', 'PostsController@destroy')->name('posts.delete');
 });

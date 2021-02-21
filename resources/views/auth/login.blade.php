@@ -24,9 +24,13 @@
 
                 {!! Form::submit('ログイン', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
+            
+    　　<hr>
+    　　
+            <p>会員登録がお済みではない方は</p>
 
             {{-- ユーザ登録ページへのリンク --}}
-            <p class="mt-2">New user? {!! link_to_route('signup.get', 'Sign up now!') !!}</p>
+            {!! link_to_route('signup.get', '新規会員登録', [], ['class'=>'btn btn-info']); !!}
         </div>
     </div>
 @endsection
