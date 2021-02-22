@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>チーム一覧</h1>
-    <p>{!! link_to_route('players.players', 'チーム') !!}</p>
+    
+    @include('commons.navtab')
+    
+    <div>
+    @foreach($teams as $team)
+        <h2>{!! link_to_route('team.players', $team->name, ['team'=> $team->id], ['class'=>'text-secondary']) !!}</h2>
+    @endforeach
+    </div>
 @endsection

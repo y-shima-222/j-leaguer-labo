@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//トップページ
+Route::get('/', 'TeamsController@indexFirst')->name('teams.indexf');
+
+//トップページ2
+Route::get('/2', 'TeamsController@indexSecond')->name('teams.Second');
 
 // ユーザ登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
@@ -25,7 +27,7 @@ Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 // チームページ（選手一覧ページ）
-Route::get('players', 'PlayersController@index')->name('players.players');
+Route::get('team/{team}', 'TeamsController@index')->name('team.players');
 
 // 選手ページ
 Route::get('player/{player}', 'PlayersController@show')->name('players.player');

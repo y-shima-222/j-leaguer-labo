@@ -8,14 +8,7 @@ use App\Player;
 
 class PlayersController extends Controller
 {
-    public function index()
-    {
-        //すべてのプレイヤーを取得
-        $players = Player::all();
-        
-        //選手一覧で表示
-        return view('players.index',['players' => $players]);
-    }
+    
     
     public function show($id)
     {
@@ -26,9 +19,9 @@ class PlayersController extends Controller
         $posts = $player->playerPosts()->paginate(20);
         
         //ログインユーザーのこのページの選手に対しての投稿をとる
-        $myPost =  $player->playerPosts()->where('user_id',\Auth::id())->first();
+        $myPost = $player->playerPosts()->where('user_id',\Auth::id())->first();
         
-        //選手ページで　名前とURLと投稿　を表示
+        //選手ページで　名前と投稿　を表示
         return view('players.show',[
             'player' => $player,
             'posts' => $posts,
