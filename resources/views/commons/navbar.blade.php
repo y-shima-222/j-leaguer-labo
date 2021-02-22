@@ -11,10 +11,8 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 @if (Auth::check())
-                    {{-- ログインユーザーの名前を表示 黒で見えずらい --}} 
-                    <li class="nav-item">{{ Auth::user()->name }}</li>
                     {{-- ログアウト --}}
-                    <li class="nav-item">{!! link_to_route('logout.get', 'ログアウト') !!}</li>
+                    <li class="nav-item">{!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'nav-link']) !!}</li>
                 @else
                     {{-- ユーザ登録ページへのリンク --}}
                     <li class="nav-item">{!! link_to_route('signup.get', '会員登録', [], ['class' => 'nav-link']) !!}</li>

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div>
-        <h3>投稿にはログインが必要です</h3>
+    <div class="text-center mb-5">
+        <h4>投稿にはログインが必要です</h4>
     </div>
     <div class="text-center">
         <h1>ログイン</h1>
@@ -24,13 +24,13 @@
 
                 {!! Form::submit('ログイン', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
-            
-    　　<hr>
-    　　
-            <p>会員登録がお済みではない方は</p>
-
-            {{-- ユーザ登録ページへのリンク --}}
-            {!! link_to_route('signup.get', '新規会員登録', [], ['class'=>'btn btn-info']); !!}
         </div>
     </div>
+
+    <hr>
+    <div class='text-center mb-5'>
+        <p>ログインがお済みではない方は</p>    
+        {!! link_to_route('signup.get', '新規会員登録', [], ['class'=>'btn btn-info']); !!}    
+    </div>　　
+                
 @endsection
